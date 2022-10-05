@@ -1,5 +1,7 @@
 # customer-frontend
 
+---
+
 ## Project setup
 ```
 npm install
