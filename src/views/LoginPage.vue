@@ -7,10 +7,12 @@
         >
           <v-row>
             <v-col>
-              <div align="center" ><v-img
-                  max-height="150"
-                  max-width="250"
-                  :src="logo"></v-img></div>
+              <div align="center">
+                <v-img
+                    max-height="150"
+                    max-width="250"
+                    :src="logo"></v-img>
+              </div>
             </v-col>
           </v-row>
           <v-row
@@ -36,7 +38,7 @@
                   Login
                 </v-btn>
                 <div class="d-block my-7" align="center">
-                  <v-subheader class="d-inline" >소셜 아이디로 로그인해보세요!</v-subheader>
+                  <v-subheader class="d-inline">소셜 아이디로 로그인해보세요!</v-subheader>
                 </div>
                 <div class="d-block " align="center">
                   <v-btn
@@ -99,7 +101,7 @@ export default {
       auth_popup: null,
     }
   },
-  
+
   watch: {
     auth_popup: function () {
       this.auth_popup.addEventListener('beforeunload', function () {
@@ -132,7 +134,8 @@ export default {
   background-color: white;
   height: 100%;
 }
+
 main {
-  background-color: #f2f2f2!important;
+  background-color: #f2f2f2 !important;
 }
 </style>

@@ -3,10 +3,10 @@ import jwt from '../common/jwt.js';
 
 export default {
     requestRegisterUser(user) {
-        return axios.post(process.env.VUE_APP_CUSTOMER_SERVICE_BASEURL+"/user-service/store-owner", user);
+        return axios.post(process.env.VUE_APP_CUSTOMER_SERVICE_BASEURL + "/user-service/store-owner", user);
     },
     geUserData() {
-        return axios.get(process.env.VUE_APP_CUSTOMER_SERVICE_BASEURL+"/user-service/customer/", );
+        return axios.get(process.env.VUE_APP_CUSTOMER_SERVICE_BASEURL + "/user-service/customer/",);
     },
 
     async requestLoginUser(email, password) {
@@ -16,13 +16,13 @@ export default {
         }
 
         try {
-            const response = await axios.post(process.env.VUE_APP_CUSTOMER_SERVICE_BASEURL+"/user-service/login", user);
+            const response = await axios.post(process.env.VUE_APP_CUSTOMER_SERVICE_BASEURL + "/user-service/login", user);
             const data = response.data.data;
 
             jwt.saveToken(data.accessToken);
             jwt.saveExpiredTime(data.expiredTime);
 
-            axios.defaults.headers.common['Authorization'] =  "Bearer " + data.accessToken;
+            axios.defaults.headers.common['Authorization'] = "Bearer " + data.accessToken;
 
             return true;
         } catch (err) {

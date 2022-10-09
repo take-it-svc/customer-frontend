@@ -1,5 +1,5 @@
 <template>
-  <v-container >
+  <v-container>
     <v-row justify="center">
       <v-col>
         <div class="text-h5">
@@ -19,13 +19,13 @@
 
     <v-row justify="center">
       <v-col>
-        <div class="text-h5" >
+        <div class="text-h5">
           회원님이<br>
           <b><span class="deep-orange--text">즐겨찾는 매장</span></b>이에요!
         </div>
         <slide-store
-          :store-list="favoriteStoreList"
-          :id="'favorite'"
+            :store-list="favoriteStoreList"
+            :id="'favorite'"
         ></slide-store>
       </v-col>
     </v-row>
@@ -38,16 +38,16 @@ import storeApi from "@/api/store";
 
 export default {
   name: "HomeView",
-  components:{
+  components: {
     slideStore
   },
-  data(){
-    return{
-      latitude:0,
-      longitude:0,
-      favoriteStoreList:{
-        data:[],
-        isActive:'',
+  data() {
+    return {
+      latitude: 0,
+      longitude: 0,
+      favoriteStoreList: {
+        data: [],
+        isActive: '',
       },
       nearbyStores: {
         data: [],
@@ -65,8 +65,8 @@ export default {
     await this.requestNearbyStore();
 
   },
-  methods:{
-    getLocation: async function() {
+  methods: {
+    getLocation: async function () {
       return new Promise(function (resolve, reject) {
         if ('geolocation' in navigator) {
           navigator.geolocation.getCurrentPosition((position) => {
@@ -82,16 +82,16 @@ export default {
         }
       });
     },
-    requestFavoriteStore: async function() {
+    requestFavoriteStore: async function () {
       try {
-        const response = await storeApi.getFavoriteStore(this.latitude,this.longitude)
+        const response = await storeApi.getFavoriteStore(this.latitude, this.longitude)
         this.favoriteStoreList.isActive = 'd-none'
         this.favoriteStoreList.data = response.data.data;
       } catch (error) {
         console.log(error);
       }
     },
-    requestNearbyStore: async function() {
+    requestNearbyStore: async function () {
       try {
         const response = await storeApi.requestNearbyStore(this.latitude, this.longitude, "", 0, 10);
         const stores = response.data.data.stores;
