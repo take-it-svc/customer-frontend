@@ -56,7 +56,7 @@
 
 <script>
 
-import userApi from "@/api/user";
+import userApi from "@/api/userApi";
 
 export default {
   name: "MyPage",
@@ -72,7 +72,7 @@ export default {
   },
   methods:{
     getUserData(){
-      userApi.geUserData().then(response =>{
+      userApi.getUserData().then(response =>{
         this.userData = response.data.data
       }).catch(error =>{
         console.log(error.response)

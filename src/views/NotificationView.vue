@@ -1,16 +1,11 @@
 <template>
   <div>
-    <template
-        v-for="(item, index) in notifications">
+    <template v-for="(item, index) in notifications">
       <v-list-item three-line :key="item.id">
         <v-list-item-content>
-          <v-list-item-title>{{item.title}}</v-list-item-title>
-          <v-list-item-subtitle>
-            {{item.message}}
-          </v-list-item-subtitle>
-          <v-list-item-subtitle>
-            2022-03-09 14:00
-          </v-list-item-subtitle>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-subtitle>{{ item.message }}</v-list-item-subtitle>
+          <v-list-item-subtitle>2022-10-10 14:00</v-list-item-subtitle>
         </v-list-item-content>
 
         <v-list-item-action>
@@ -26,16 +21,15 @@
               hide-details></v-checkbox>
         </v-list-item-action>
       </v-list-item>
-      <v-divider
-          v-if="index < notifications.length - 1"
-          :key="index"
-      ></v-divider>
+
+      <v-divider v-if="index < notifications.length - 1" :key="index"></v-divider>
+
     </template>
   </div>
 </template>
 
 <script>
-import notificationApi from "@/api/notification";
+import notificationApi from "@/api/notificationApi";
 
 export default {
   name: "NotificationView",
@@ -48,11 +42,11 @@ export default {
     }
   },
   methods: {
-    search: async function() {
+    search: async function () {
       const response = await notificationApi.requestNotification();
       this.render(response.data);
     },
-    render: function(json) {
+    render: function (json) {
       const notifications = json.data.notifications;
       notifications.forEach(notification => {
         this.notifications.push({
@@ -64,8 +58,8 @@ export default {
         });
       });
     },
-    clickRead: async function(id, isRead) {
-      await notificationApi.patchNotification(id, isRead);
+    clickRead: async function (id, isRead) {
+      await notificationApi.readNotification(id, isRead);
 
       if (isRead) {
         alert("해당 알림은 읽음 처리되었습니다.");
@@ -77,8 +71,3 @@ export default {
     }
   }
 }
-</script>
-
-<style scoped>
-
-</style>

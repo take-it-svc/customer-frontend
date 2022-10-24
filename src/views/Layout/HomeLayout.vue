@@ -16,7 +16,7 @@
 <script>
 import AppNavigation from "../../components/AppNavigation.vue";
 import BottomNavigation from "../../components/BottomNavigation.vue";
-import notificationApi from "../../api/notification";
+import notificationApi from "../../api/notificationApi";
 
 export default {
   name: "HomeLayout",

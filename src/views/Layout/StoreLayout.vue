@@ -18,7 +18,7 @@
 import StoreNavigation from "../../components/StoreNavigation.vue";
 import BottomNavigation from "../../components/BottomNavigation.vue";
 
-import storeApi from "../../api/store";
+import storeApi from "../../api/storeApi";
 
 export default {
   name: "StoreLayout",

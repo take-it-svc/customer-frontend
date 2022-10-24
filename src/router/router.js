@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import jwt from "@/common/jwt";
-import auth from "@/api/auth";
+import jwt from "@/global/jwt";
+import auth from "@/api/authApi";
 
 import HomeLayout from '../views/Layout/HomeLayout.vue';
 import StoreLayout from "@/views/Layout/StoreLayout";
+
 const ACCESS_TOKEN_NAME = "accessToken";
 const EXPIRED_TIME_NAME = "expiredTime";
 

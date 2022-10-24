@@ -85,8 +85,8 @@
 </template>
 
 <script>
-import storeApi from "@/api/store";
-import orderApi from "@/api/order";
+import storeApi from "@/api/storeApi";
+import orderApi from "@/api/orderApi";
 
 export default {
   name: "ItemDetail",
@@ -174,6 +174,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>

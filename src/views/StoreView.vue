@@ -54,7 +54,7 @@
         <br>
       </div>
     </div>
-    <div align="right" >
+    <div align="right">
       <v-btn
           color="primary"
           dark
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import storeApi from "../api/store";
+import storeApi from "../api/storeApi";
 
 export default {
   name: "StoreView",
@@ -88,26 +88,26 @@ export default {
     tagIndex: 0
   }),
   watch: {
-    tagIndex: function(newValue) {
+    tagIndex: function (newValue) {
       this.$refs.focusTag[newValue].scrollIntoView({behavior: 'smooth', block: 'center'});
     }
   },
   methods: {
-    search: async function(storeId) {
+    search: async function (storeId) {
       const response = await storeApi.requestCategoriesWithItem(storeId);
       this.render(response.data);
     },
-    render: function(json) {
+    render: function (json) {
       this.categories = json.data.categories;
       this.categories.forEach(category => {
         this.tags.push(category.name);
       })
     },
     itemDetail: function (itemId) {
-      this.$router.push("/item/"+itemId)
+      this.$router.push("/item/" + itemId)
     },
-    toOrder(){
-      if(confirm("주문화면으로 이동할까요?")){
+    toOrder() {
+      if (confirm("주문화면으로 이동할까요?")) {
         this.$router.push("/order")
       }
     }

@@ -85,10 +85,10 @@
 </template>
 
 <script>
-import logo from '@/assets/justLogo.png'
+import logo from '@/assets/takeIt-logo.png'
 import logo_naver from '@/assets/logo_naver.svg'
 import logo_google from '@/assets/logo_google.png'
-import jwt from "@/common/jwt";
+import jwt from "@/global/jwt";
 import router from "@/router/router";
 
 export default {
@@ -105,14 +105,14 @@ export default {
   watch: {
     auth_popup: function () {
       this.auth_popup.addEventListener('beforeunload', function () {
-        window.location.href = process.env.VUE_APP_BASEURL;
+        window.location.href = "/";
       });
     }
   },
 
   methods: {
     login_auth: async function (target) {
-      const _url = process.env.VUE_APP_CUSTOMER_SERVICE_BASEURL + '/user-service/oauth2/authorization/' + target
+      const _url = "/user-service/oauth2/authorization/" + target
       this.auth_popup = window.open(
           _url,
           "",

@@ -2,9 +2,8 @@
   <v-container>
     <v-row justify="center">
       <v-col>
-        <div class="text-h5">
-          회원님과<br>
-          <b><span class="deep-orange--text">가까이 있는 매장</span></b>이에요!
+        <div class="text-h5">고객님과<br>
+          <b><span class="brown--text">"가까이" 있는 매장</span></b>이에요!
         </div>
         <slide-store
             :store-list="nearbyStores"
@@ -20,8 +19,8 @@
     <v-row justify="center">
       <v-col>
         <div class="text-h5">
-          회원님이<br>
-          <b><span class="deep-orange--text">즐겨찾는 매장</span></b>이에요!
+          고객님이<br>
+          <b><span class="brown--text">"즐겨찾는" 매장</span></b>이에요!
         </div>
         <slide-store
             :store-list="favoriteStoreList"
@@ -34,7 +33,7 @@
 
 <script>
 import slideStore from "@/components/SlideStore";
-import storeApi from "@/api/store";
+import storeApi from "@/api/storeApi";
 
 export default {
   name: "HomeView",
@@ -63,7 +62,6 @@ export default {
     await this.requestFavoriteStore()
 
     await this.requestNearbyStore();
-
   },
   methods: {
     getLocation: async function () {
@@ -111,7 +109,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

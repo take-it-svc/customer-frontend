@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import orderApi from "../api/order.js"
+import orderApi from "../api/orderApi.js"
 
 import OrderHistoryCard from "../components/OrderHistoryCard";
 
@@ -95,7 +95,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

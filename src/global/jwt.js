@@ -17,7 +17,7 @@ export default {
     saveExpiredTime(expiredTime) {
         localStorage.setItem(EXPIRED_TIME_NAME, expiredTime);
     },
-    destroyAll() {
+    removeAll() {
         localStorage.removeItem(ACCESS_TOKEN_NAME);
         localStorage.removeItem(EXPIRED_TIME_NAME);
     },

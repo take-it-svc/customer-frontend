@@ -4,7 +4,6 @@
       dense
       color="white"
       elevation="1"
-
   >
     <v-app-bar-nav-icon @click="$router.back()">
       <v-icon>mdi-arrow-left</v-icon>
@@ -16,42 +15,42 @@
     </v-toolbar-title>
     <v-spacer></v-spacer>
 
-      <v-btn
-          color="white"
-          elevation="0"
-          @click="goNotification"
-      >
-        <v-badge
+    <v-btn
+        color="white"
+        elevation="0"
+        @click="goNotification"
+    >
+      <v-badge
           :content="notificationCounts"
           :value="notificationCounts"
           color="orange"
           overlap
-        >
-            <v-icon>mdi-bell-outline</v-icon>
-        </v-badge>
-      </v-btn>
+      >
+        <v-icon>mdi-alarm-multiple</v-icon>
+      </v-badge>
+    </v-btn>
     <v-btn
         color="white"
         elevation="0"
         @click="logout"
     >
-        <v-icon>mdi-logout</v-icon>
+      <v-icon>mdi-logout</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
 
 <script>
-import authApi from "@/api/auth";
+import authApi from "@/api/authApi";
 
 export default {
   name: "AppNavigation",
   props: ["notificationCounts"],
   methods: {
-    goNotification: function() {
+    goNotification: function () {
       this.$router.push('/notification');
     },
     logout: function () {
-      if(confirm("로그아웃하시겠습니까?")){
+      if (confirm("로그아웃하시겠습니까?")) {
         authApi.logout();
 
       }

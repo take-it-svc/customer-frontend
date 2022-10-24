@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import storeApi from "@/api/store";
-import authApi from "@/api/auth";
+import storeApi from "@/api/storeApi";
+import authApi from "@/api/authApi";
 
 export default {
   name: "StoreNavigation",
@@ -60,7 +60,7 @@ export default {
     markStar:function () {
       this.changeStarStatus(!this.favoriteStore.status)
       var vm = this
-      storeApi.markStar(this.store.id)
+      storeApi.markFavoriteStore(this.store.id)
           .then(()=>{
             vm.favoriteStore.status?
                 alert('즐겨찾는 매장에서 제외되었습니다.') : alert('즐겨찾는 매장에 등록되었습니다.')

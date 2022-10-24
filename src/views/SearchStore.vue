@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import storeApi from "../api/store.js";
+import storeApi from "../api/storeApi.js";
 
 export default {
   name: "SearchStore",
@@ -160,7 +160,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

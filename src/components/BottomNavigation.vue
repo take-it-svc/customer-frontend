@@ -22,7 +22,7 @@ export default {
       links: [
         {name: "홈", url: "/", icon: "mdi-home-outline"},
         {name: "검색", url: "/search", icon: "mdi-magnify"},
-        {name: "즐겨찾기", url: "/favorite", icon: "mdi-cards-heart-outline"},
+        {name: "즐겨찾기", url: "/favorite", icon: "mdi-star-face"},
         {name: "주문내역", url: "/history", icon: "mdi-clipboard-check-outline"},
         {name: "마이페이지", url: "/mypage", icon: "mdi-account-outline"}
       ]

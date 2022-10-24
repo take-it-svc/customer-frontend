@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import storeApi from "@/api/store";
+import storeApi from "@/api/storeApi";
 
 export default {
   name: "FavoriteStore",
@@ -123,7 +123,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>
